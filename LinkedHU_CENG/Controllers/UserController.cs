@@ -39,7 +39,7 @@ namespace LinkedHU_CENG.Controllers
             }
         }
 
-        
+
         public IActionResult Login(User usr)
         {
             
@@ -58,31 +58,6 @@ namespace LinkedHU_CENG.Controllers
         {
             if (HttpContext.Session.GetString("UserID") != null)
             {
-                //HttpContext.Session.Clear();
-                HttpContext.Session.Remove("UserID");
-                HttpContext.Session.Remove("Email");
-
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
-        }
-
-        public IActionResult Delete(int id)
-        {
-            if (HttpContext.Session.GetString("UserID") != null)
-            {
-                
-                var user = db.Users.Find(id);
-                if (user == null)
-                {
-                    return NotFound();
-                }
-                db.Users.Remove(user);
-                db.SaveChanges();
-
                 //HttpContext.Session.Clear();
                 HttpContext.Session.Remove("UserID");
                 HttpContext.Session.Remove("Email");
