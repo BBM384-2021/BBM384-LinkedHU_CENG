@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "LoggedIn";
+}
+
+
+<div style="display:block; width:100%;">
+    <div style="width:65%; float: left; display: inline-block;">
+        <partial name="~/Views/Post/Create.cshtml" />
+        <div>
+            @await Component.InvokeAsync("PostViewComponent")
+        </div>
+    </div>
+    <div style="width:35%; float: left; display: inline-block;">
+        <partial name="~/Views/Announcement/Create.cshtml" />
+        <div>
+            @await Component.InvokeAsync("AnnouncementViewComponent")
+        </div>
+    </div>
+
+</div>

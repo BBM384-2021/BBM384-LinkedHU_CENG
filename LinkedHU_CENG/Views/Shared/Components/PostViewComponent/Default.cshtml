@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LinkedHU_CENG.Models.Post>
+
+@{
+    var sessionUserID = ViewData["SessionUserId"] as Int32?;
+}
+
+<div class="container p-3">
+    <br /><br />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+
+
+        @foreach (var obj in Model.OrderByDescending(a => a.PostId))
+        {
+
+
+            <div class="card border p-3 mt-4  custom-shadow1">
+                <div class="custom-margin1">
+                    <div class="text-end">
+                        <div id="wrapperDiv">
+                            <div id="div3" style="padding:5px;;float:right;color:#ffffff"> <a href=#><i class="bi bi-chat-right-text"></i></a> </div>
+                            <div id="div2" style="padding:5px;float:right;color:#ffffff"> <a href=#> <i class="bi bi-share"></i></a></div>
+                            @if (sessionUserID == obj.UserId)
+                            {
+                                <div id="div1" style="padding:5px;float:right;color:#ffffff">
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle my-2 my-sm-0" href="#" role="button" data-bs-toggle="dropdown">Edit</a>
+
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a asp-controller="Post" asp-action="Update" asp-route-id="@obj.PostId"
+                                       class="dropdown-item mx-2 w-75"> <i class="bi bi-pencil-square"></i> Update</a>
+
+                                            <a asp-controller="Post" asp-action="Delete" asp-route-id="@obj.PostId"
+                                       class="dropdown-item mx-2 w-75"> <i class="bi bi-trash-fill"></i> Delete</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <h5>@obj.UserName</h5>
+                    <small class="text-muted"> @obj.CreatedAt</small>
+                    <br /> <br />
+                    <h6>@obj.Content</h6>
+                </div>
+            </div>
+            <br />
+        }
+    </table>
+</div>

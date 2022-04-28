@@ -1,0 +1,85 @@
+﻿@model LinkedHU_CENG.Models.UnregisteredUser
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_LayoutGuest.cshtml";
+}
+
+<form asp-action="Register" , asp-controller="UnregisteredUser">
+    <fieldset>
+        <h1 align="center">Register</h1>
+        <div class="col-md-4" style="width:400px; margin:0 auto;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNum" class="control-label"> Phone Number</label>
+                <input type="tel" placeholder="5xx xxx xxxx" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" asp-for="PhoneNum" class="form-control onchange="addSpaces(this.value);" />
+                <span asp-validation-for="PhoneNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input minlength="6" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label">Birthdate</label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            @*            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <label asp-for="Role" class="control-label"></label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="" asp-for="Role" class="btn-check" value="Academician">
+                <label class="btn btn-outline-danger" for="btnradio1">Academician</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="" asp-for="Role" class="btn-check" value="Graduate">
+                <label class="btn btn-outline-danger" for="btnradio2">Graduate</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked="" asp-for="Role" class="btn-check" value="Student">
+                <label class="btn btn-outline-danger" for="btnradio3">Student</label>
+                <span asp-validation-for="Role" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group">
+                <label asp-for="Role" class="control-label"></label>
+                <input asp-for="Role" class="form-control" />
+                <span asp-validation-for="Role" class="text-danger"></span>
+                </div>*@
+
+            @*<div class="form-group">
+                <input  type="radio" class="control-label btn-check"  asp-for="Role" value="graduation" >Graduate
+                <input  type="radio" class="control-label btn-check"  asp-for="Role" value="academician">Academician*@
+
+            <div class="form-group" align="center">
+                <div align="left"><label asp-for="Role" class="control-label"></label></div>
+
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="control-label btn-check " id="btnradio1" asp-for="Role" value="student" checked>
+                    <label class="btn btn-outline-info" for="btnradio1">Student</label>
+                    <input type="radio" class="control-label btn-check " id="btnradio2" asp-for="Role" value="graduate" checked>
+                    <label class="btn btn-outline-info" for="btnradio2">Graduate</label>
+                    <input type="radio" class="control-label btn-check " id="btnradio3" asp-for="Role" value="academician" checked>
+                    <label class="btn btn-outline-info" for="btnradio3">Academician</label>
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div align="center" class="form-group" style="" width:400px; margin:0 auto;">
+                <input type="submit" class="btn btn-info" value="Register" />
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+

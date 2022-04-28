@@ -1,0 +1,32 @@
+﻿@model LinkedHU_CENG.Models.Report
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="ReportRequest" , asp-controller="Report">
+    <fieldset>
+        <h1 align="center">Report</h1>
+        <div class="col-md-4" style="width:400px; margin:0 auto;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ReportUserName" class="control-label"></label>
+                <input asp-for="ReportUserName" class="form-control" />
+                <span asp-validation-for="ReportUserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Detail" class="control-label"></label>
+                <input asp-for="Detail" class="form-control" />
+                <span asp-validation-for="Detail" class="text-danger"></span>
+            </div>
+
+            <div align="center" class="form-group" style="" width:400px; margin:0 auto;">
+                <input type="submit" class="btn btn-info" value="Send" />
+            </div>
+        </div>
+    </fieldset>
+</form>

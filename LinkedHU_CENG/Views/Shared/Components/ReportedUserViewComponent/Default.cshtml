@@ -1,0 +1,41 @@
+﻿@model IEnumerable<LinkedHU_CENG.Models.Report>
+
+<div class="container p-3">
+
+    <br /><br />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+
+        <thead>
+            <tr>
+                <th>
+                    Report ID
+                </th>
+                <th>
+                    Name Surname
+                </th>
+                <th>
+                    Sender User
+                </th>
+                <th>
+                    Detail
+                </th>
+                <th>
+                    Created at
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td> @obj.ReportId </td>
+                    <td> @obj.ReportUserName </td>
+                    <td> @obj.UserId </td>
+                    <td> @obj.Detail </td>
+                    <td> @obj.CreatedAt </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

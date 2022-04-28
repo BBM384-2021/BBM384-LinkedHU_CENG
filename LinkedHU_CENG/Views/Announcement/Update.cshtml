@@ -1,0 +1,21 @@
+﻿@model LinkedHU_CENG.Models.Announcement
+@{
+    ViewData["Title"] = "Update";
+}
+
+<form asp-controller="Announcement" asp-action="Update" method="post">
+    @Html.HiddenFor(model => model.AnnouncementId)
+    @Html.HiddenFor(model => model.UserId)
+    @Html.HiddenFor(model => model.UserName)
+    <div class="text-center">
+        <div class="border p-3 mt-4 custom-shadow1 custom-margin1">
+            <div class="mb-3 ">
+                <h3 class="text-primary">Update Post</h3>
+                <input asp-for="Content" class="form-control" />
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Update</button>
+        </div>
+    </div>
+
+</form>
